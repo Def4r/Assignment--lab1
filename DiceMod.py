@@ -4,12 +4,14 @@ import random
 
 # Methods for the dices
 
+# This method is a singulair dice that the player uses when playing the game 
 def diceI():
    onlyDice = random.randint(1,6)
    print("You rolled ", onlyDice)
    print("")
    return onlyDice
 
+# This method is a double dice that the player uses when playing the game
 def dicesII():
    firstDice = random.randint(1, 6)
    secondDice = random.randint(1, 6)
@@ -18,6 +20,7 @@ def dicesII():
    print("")
    return DualDice
 
+# This method gives the user a prompt to answer in which of the 2 dices they want to use. if they don't pick the game will pick for th player randomly.
 def pickDice():
    dice_1 = random.randint(1,6)
    dice_2 = random.randint(1,6)
@@ -25,6 +28,7 @@ def pickDice():
    print("You rolled ", dice_2, " on Dice II") 
    print("")
    FinalDice = (input("Type 'I' or 'II' to pick the dice you want to use: "))
+   print("")
    
    if FinalDice == "I":
       print("You picked Dice I which rolled ", dice_1)
@@ -39,7 +43,7 @@ def pickDice():
          print("We picked Dice I for you which is ", dice_1)
          return dice_1
       elif CoinFilp == 2:
-         print("We picked Dice I for you whihc is ", dice_2)
+         print("We picked Dice I for you which is ", dice_2)
          return dice_2
 
 
@@ -48,5 +52,5 @@ def pickDice():
 
 #diceI()
 #dicesII()
-pickDice()
+#pickDice()
 
