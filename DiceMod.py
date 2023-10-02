@@ -2,7 +2,13 @@
 
 import random
 
-# Method for the dice
+# Methods for the dices
+
+def diceI():
+   onlyDice = random.randomint(1,6)
+   print("You rolled ", onlyDice)
+   print("")
+   return onlyDice
 
 def dicesII():
    firstDice = random.randint(1, 6)
@@ -12,6 +18,7 @@ def dicesII():
    print("")
    return DualDice
 
+diceI()
 dicesII()
 
 
