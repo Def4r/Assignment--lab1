@@ -24,7 +24,7 @@ def pickDice():
    print("You rolled ", dice_1, " on Dice I")
    print("You rolled ", dice_2, " on Dice II") 
    print("")
-   FinalDice = int(input("Type 'I' or 'II' to pick the dice you want to use: "))
+   FinalDice = (input("Type 'I' or 'II' to pick the dice you want to use: "))
    
    if FinalDice == "I":
       print("You picked Dice I which rolled ", dice_1)
@@ -40,6 +40,7 @@ def pickDice():
          return dice_1
       elif CoinFilp == 2:
          print("We picked Dice I for you whihc is ", dice_2)
+         return dice_2
 
 
 
