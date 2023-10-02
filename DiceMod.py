@@ -21,20 +21,26 @@ def dicesII():
 def pickDice():
    dice_1 = random.randint(1,6)
    dice_2 = random.randint(1,6)
-   print(dice_1)
-   print(dice_2)
-   FinalDice = int(input("hello "))
+   print("You rolled ", dice_1, " on Dice I")
+   print("You rolled ", dice_2, " on Dice II") 
+   print("")
+   FinalDice = int(input("Type 'I' or 'II' to pick the dice you want to use: "))
    
-   while FinalDice > 0:
-      if FinalDice == 1:
-         print("You picked Dice 1 which rolled ", dice_1)
+   if FinalDice == "I":
+      print("You picked Dice I which rolled ", dice_1)
+      return dice_1
+   elif FinalDice == "I":
+      print("You picked Dice I which rolled ", dice_2)
+      return dice_2
+   else:
+      print("You didn't type 'I' or 'II'! We will randomly pick for you using a coinfilp")
+      CoinFilp = random.randint(1,2)
+      if CoinFilp == 1:
+         print("We picked Dice I for you which is ", dice_1)
          return dice_1
-      elif FinalDice == 2:
-         print("You picked Dice 2 which rolled ", dice_2)
-         return dice_2
-      else:
-         print("You didn't type 1 or 2 try again")
-         continue
+      elif CoinFilp == 2:
+         print("We picked Dice I for you whihc is ", dice_2)
+
 
 
 
