@@ -21,7 +21,7 @@ def dicesII():
 def pickDice():
    dice_1 = random.randint(1,6)
    dice_2 = random.randint(1,6)
-   FinalDice = int(input("You rolled a ", dice_1, " and a ", dice_2, "Type 1 to pick Dice 1 roll or Type 2 to pick Dice 2 roll: " ))
+   FinalDice = (input(""))
    if FinalDice == 1:
       print("You picked Dice 1 which rolled ", dice_1)
       return dice_1
