@@ -1,20 +1,24 @@
 import time
 import random
 import sys
+import CharacterMod
 from time import sleep
 from sys import stdout
+
+def main():
+    return True
 
 def Introduction():
     Title = "||Welcome to Dungeon Hunters||"
     for char in Title:
-        sleep(0.09)
+        sleep(0.07)
         stdout.write(char)
         stdout.flush()
 
     sleep(2)
     print("")
 
-    ContinueGame = "Type 'PLAY' start the game skipping the intro and tutorial. Type 'LEARN' if you want to read the tutorial and intro of the game"
+    ContinueGame = "Type 'START' to Play the game"
     for char in ContinueGame:
         sleep(0.04)
         stdout.write(char)
@@ -23,12 +27,9 @@ def Introduction():
     print("")
     ContinuePrompt = str(input(":>"))
     
-    if ContinuePrompt.lower() == "play":
-        return "true"
-    
-    if ContinuePrompt.lower() == "learn":
+    if ContinuePrompt.lower() == "start":
         print("")
-        TextI = "The objective of the game is to make it out of the dungeon ALIVE."
+        TextI = "The objective of the game is to make it out of the dungeon ALIVE. There will be 3 stages you will have to defeat in order to escape the dungeon. This game is dice based and will determine how the game will end up playing."
         for char in TextI:
             sleep(0.04)
             stdout.write(char)
@@ -57,7 +58,7 @@ def Introduction():
         print("")
         sleep(2)
 
-        TextIII = "Now the game will restart going back to the starting menu."
+        TextIII = "Now the game will begin. Have Fun :]"
         for char in TextIII:
             sleep(0.04)
             stdout.write(char)
@@ -65,6 +66,14 @@ def Introduction():
         print("")
         sleep(2)
         return "true"
+    else:
+        ErrorText = "ERROR :["
+        for char in ErrorText:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
+        sleep(2)
+        exit()
 
 def characterSection():
     if Introduction() == "true":
@@ -75,6 +84,17 @@ def characterSection():
             stdout.flush()
         print("")
         PickChar = str(input(":>"))
+        if PickChar.lower() == "Rouge":
+            PickRougeText = ("You have picked |The Rouge|")
+        elif PickChar.lower() == "Knight":
+            PickKnightText = ("You have picked |The Knight|")
+        elif PickChar.lower() == "Mage":
+            PickMageText = ("You picked |The Mage|")
+        elif PickChar.lower() == "Tank":
+            PickTankText = ("You picked |The Tank|")
 
-Introduction()
+        
+            
+
+#Introduction()
 characterSection()
