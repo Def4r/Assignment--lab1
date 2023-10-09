@@ -1,14 +1,17 @@
 import time
 import random
 import sys
-import CharacterMod 
-from CharacterMod import Rouge
+import CharacterMod as CM
 import DiceMod
 from time import sleep
 from sys import stdout
 
 CharPick = 0
 NewCharHP = 0
+NewCharSpeed = 0
+NewCharShield = 0
+NewCharAttack = 0
+NewCharLH = 0
 
 ErrorText = "ERROR :["
 
@@ -102,16 +105,33 @@ def characterSection():
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
             CharPick == 4
-        elif PickChar.lower() == "EasyMode":
-            PickChosenOneText = ("You picked |The Chosen One| Easy |")
-            CharPick == 5
-        elif PickChar.lower() == "Nightmare":
-            PickNightmareText = ("You picked |Nightmare| Goodluck |")
-            CharPick == 6
 
 def characterCreation():
     if CharPick == 1:
-        NewCharHP == 
+        NewCharHP == CM.RougeCharHP
+        NewCharSpeed == CM.RougeCharSpeed
+        NewCharAttack == CM.RougeCharAttack
+        NewCharShield == CM.RougeCharShield
+        NewCharLH == CM.RougeCharLuckHit
+    elif CharPick == 2:
+        NewCharHP
+        NewCharSpeed == CM.KnightCharSpeed
+        NewCharAttack == CM.KnightCharAttack
+        NewCharShield == CM.KnightCharShield
+        NewCharLH == CM.KnightCharLuckHit
+    elif CharPick == 3:
+        NewCharHP == CM.MageCharHP
+        NewCharSpeed == CM.MageCharSpeed
+        NewCharAttack == CM.MageCharAttack
+        NewCharShield == CM.MageCharShield
+        NewCharLH == CM.MageCharLuckHit
+    elif CharPick == 4:
+        NewCharHP == CM.TankCharHP
+        NewCharSpeed == CM.MageCharSpeed
+        NewCharAttack == CM.MageCharAttack
+        NewCharShield == CM.MageCharShield
+        NewCharLH == CM.MageCharLuckHit
+  
 #use the class from character mod 
         
 

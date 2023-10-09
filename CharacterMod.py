@@ -17,7 +17,7 @@ TankCharHP = 2
 TankCharSpeed = "dicesI"
 TankCharShield = 2
 TankCharAttack = 1
-TankCCharLuckHit = 0
+TankCharLuckHit = 0
 
 #Stats for the Mage:
 MageCharHP = 1
