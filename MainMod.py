@@ -1,9 +1,16 @@
 import time
 import random
 import sys
-import CharacterMod
+import CharacterMod 
+from CharacterMod import Rouge
+import DiceMod
 from time import sleep
 from sys import stdout
+
+CharPick = 0
+NewCharHP = 0
+
+ErrorText = "ERROR :["
 
 def main():
     return True
@@ -67,7 +74,6 @@ def Introduction():
         sleep(2)
         return "true"
     else:
-        ErrorText = "ERROR :["
         for char in ErrorText:
             sleep(0.04)
             stdout.write(char)
@@ -86,15 +92,28 @@ def characterSection():
         PickChar = str(input(":>"))
         if PickChar.lower() == "Rouge":
             PickRougeText = ("You have picked |The Rouge|")
+            CharPick == 1
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
+            CharPick == 2
         elif PickChar.lower() == "Mage":
             PickMageText = ("You picked |The Mage|")
+            CharPick == 3
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
+            CharPick == 4
+        elif PickChar.lower() == "EasyMode":
+            PickChosenOneText = ("You picked |The Chosen One| Easy |")
+            CharPick == 5
+        elif PickChar.lower() == "Nightmare":
+            PickNightmareText = ("You picked |Nightmare| Goodluck |")
+            CharPick == 6
 
+def characterCreation():
+    if CharPick == 1:
+        NewCharHP == 
+#use the class from character mod 
         
-            
 
 #Introduction()
 characterSection()
