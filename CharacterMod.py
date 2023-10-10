@@ -5,6 +5,11 @@
 # CharLuckHit - Changes the chance that your character can double hit. Higher the number the more lucky you are to get a double hit. having 0 doesn't mean you don't have any but you would just have the default amount
 # There will also be difficulty characters that you can pick that would make the game easier or harder. They have over turned stats to make that experience. 
 
+#Each stage will have a single fight the player will need to complete here I will example the stats
+#Stage_HP - The overall health the Boss can take
+#Stage_Attack - How much damage they can deal to you each turn.
+#Stage_Speed - If you do decide to run this would be how fast they can catch you getting a free hit. The number would be multipled by 3 to get the true distance.
+
 #Stats for the rouge:
 RougeCharHP = 1
 RougeCharSpeed = "dicesII"
@@ -46,3 +51,18 @@ EAsyCharSpeed = "dicesII"
 EasyCharShield = 2
 EasyCharAttack = 2
 EasyCharLuckyHit = 2
+
+#Stage 1 Boss Fight Stats
+Stage1HP = 4
+Stage1Attack = 1
+Stage1Speed = 1
+
+#Stage 2 Boss fight stats
+Stage2HP = 4
+Stage2Attack = 2
+Stage2Speed = 2
+
+#Stage 3 Boss fight stats
+Stage3HP = 6
+Stage3Attack = 2
+Stage3Speed = 2

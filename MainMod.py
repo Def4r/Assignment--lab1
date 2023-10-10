@@ -12,8 +12,14 @@ NewCharSpeed = 0
 NewCharShield = 0
 NewCharAttack = 0
 NewCharLH = 0
+NowStage_HP = 0 
+NowStage_Attack = 0
+NowStage_Speed = 0
 
 ErrorText = "ERROR :["
+GameLoseText = "YOU LOSE !!"
+GameWinText = "YOU WON !!"
+
 
 def main():
     return True
@@ -46,11 +52,12 @@ def Introduction():
             stdout.flush()
         sleep(2)
         print("")
-        TextII = "You will have to pick between a varity of characters. They all have different stats and attributes before you choose you character you will see a breif overview of them"
+        TextII = "You will have to pick between a varity of characters. They all have different stats and attributes before you choose your character here's a breif overview of them"
         for char in TextII:
             sleep(0.04)
             stdout.write(char)
             stdout.flush()
+        sleep(1)
         print("")
         RougeSum = "Rouge: Fast, aglie and has access to double dice which allows them to travel faster but can't take hits and will die easily"
         print("")
@@ -95,6 +102,10 @@ def characterSection():
         PickChar = str(input(":>"))
         if PickChar.lower() == "Rouge":
             PickRougeText = ("You have picked |The Rouge|")
+            for char in PickRougeText:
+                sleep(0.04)
+                stdout.write(char)
+                stdout.flush()
             CharPick == 1
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
@@ -127,13 +138,59 @@ def characterCreation():
         NewCharLH == CM.MageCharLuckHit
     elif CharPick == 4:
         NewCharHP == CM.TankCharHP
-        NewCharSpeed == CM.MageCharSpeed
-        NewCharAttack == CM.MageCharAttack
-        NewCharShield == CM.MageCharShield
-        NewCharLH == CM.MageCharLuckHit
-  
+        NewCharSpeed == CM.TankCharSpeed
+        NewCharAttack == CM.TankCharAttack
+        NewCharShield == CM.TankCharShield
+        NewCharLH == CM.TankCharLuckHit
+
+def playerLose():
+    if NewCharHP == 0:
+        for char in GameLoseText:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
+        sleep(2)
+        exit()
+
+def stage1():
+
+    NowStage_HP == CM.Stage1HP
+    NowStage_Attack == CM.Stage1Attack
+    NowStage_Speed == CM.Stage1Speed
+    
+    TextV = "Stage 1"
+    for char in TextV:
+        sleep(0.04)
+        stdout.write(char)
+        stdout.flush()
+    print("")
+    sleep(0.5)
+    TextVI = "You are fighting the guardian of the dungeon... He looks over at you ready for combat"
+    for char in TextVI:
+        sleep(0.04)
+        stdout.write(char)
+        stdout.flush()
+    print("")
+    
+    stage1run = 1
+
+    while stage1run == 1:
+        if input("Press Enter to roll your dice") == "":
+            if CharPick == 1:
+                DiceMod.dicesII
+                TextVII
+                
+
+        
+
+
+    
+
+
+
 #use the class from character mod 
         
 
 #Introduction()
 characterSection()
+stage1()
