@@ -2,7 +2,10 @@ import time
 import random
 import sys
 import CharacterMod as CM
-import DiceMod
+import DiceMod 
+from DiceMod import diceI
+from DiceMod import dicesII
+from DiceMod import pickDice
 from time import sleep
 from sys import stdout
 
@@ -15,10 +18,12 @@ NewCharLH = 0
 NowStage_HP = 0 
 NowStage_Attack = 0
 NowStage_Speed = 0
+DiceRolled = 0
 
 ErrorText = "ERROR :["
 GameLoseText = "YOU LOSE !!"
 GameWinText = "YOU WON !!"
+RollDiceText = "Type 'roll' to roll your dice"
 
 
 def main():
@@ -174,11 +179,20 @@ def stage1():
     
     stage1run = 1
 
+    CharPickTest = 1
+
     while stage1run == 1:
-        if input("Press Enter to roll your dice") == "":
-            if CharPick == 1:
-                DiceMod.dicesII
-                TextVII
+        print(RollDiceText)
+        sleep(0.5)
+        DiceRollPrompt = input(">:")
+        if DiceRollPrompt.lower() == "roll":
+            if CharPickTest == 1:
+                dicesII()
+                
+                
+
+
+                
                 
 
         
@@ -192,5 +206,5 @@ def stage1():
         
 
 #Introduction()
-characterSection()
+#characterSection()
 stage1()
