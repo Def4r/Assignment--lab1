@@ -9,7 +9,7 @@ from DiceMod import pickDice
 from time import sleep
 from sys import stdout
 
-CharPick = 0
+CharPick = ""
 DiceRolled = 0
 DistanceRan = 0
 
@@ -21,14 +21,11 @@ RollDiceText = "Type 'roll' to roll your dice"
 
 
 run = time.perf_counter()
-while time.perf_counter() - run < 5:
+while time.perf_counter() - run < 3:
     LuckHit = random.randint(1,100)
 
 
-def main():
-    return True
 
-def Introduction():
     Title = "||Welcome to Dungeon Hunters||"
     for char in Title:
         sleep(0.07)
@@ -75,7 +72,6 @@ def Introduction():
         MageSum = ""
         print("")
         sleep(1)
-    
 
         TextIII = "Now the game will begin. Have Fun :]"
         for char in TextIII:
@@ -83,8 +79,8 @@ def Introduction():
             stdout.write(char)
             stdout.flush()
         print("")
+        play = 1
         sleep(2)
-        return "true"
     else:
         for char in ErrorText:
             sleep(0.04)
@@ -93,8 +89,7 @@ def Introduction():
         sleep(2)
         exit()
 
-def characterSection():
-    if Introduction() == "true":
+    if  play == 1:
         TextIV = "Pick you character | Type ....."
         for char in TextIV:
             sleep(0.04)
@@ -108,53 +103,45 @@ def characterSection():
                 sleep(0.04)
                 stdout.write(char)
                 stdout.flush()
-            CharPick = CharPick + 1
+            CharPick = "1"
+            if CharPick == "1":
+                NewCharHP = CM.RougeCharHP
+                NewCharAttack = CM.RougeCharAttack
+                NewCharShield = CM.RougeCharShield
+                NewCharLH = CM.RougeCharLuckHit
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
-            CharPick = CharPick + 2
+            KnightPick = "2"
+            CharPick == KnightPick
+            if CharPick == "2":
+                NewCharHP = CM.KnightCharHP
+                NewCharAttack = CM.KnightCharAttack
+                NewCharShield = CM.KnightCharShield
+                NewCharLH = CM.KnightCharLuckHit
         elif PickChar.lower() == "Mage":
             PickMageText = ("You picked |The Mage|")
-            CharPick = CharPick + 3
+            MagePick = "3"
+            CharPick == MagePick
+            if CharPick == "3":
+                NewCharHP = CM.MageCharHP
+                NewCharAttack = CM.MageCharAttack
+                NewCharLH = CM.MageCharLuckHit
+                NewCharShield = CM.MageCharShield
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
-            CharPick = CharPick + 4
-
-if CharPick == 1:
-    NewCharHP = CM.RougeCharHP
-    NewCharAttack = CM.RougeCharAttack
-    NewCharShield = CM.RougeCharShield
-    NewCharLH = CM.RougeCharLuckHit
-elif CharPick == 2:
-    NewCharHP = CM.KnightCharHP
-    NewCharAttack = CM.KnightCharAttack
-    NewCharShield = CM.KnightCharShield
-    NewCharLH = CM.KnightCharLuckHit
-elif CharPick == 3:
-    NewCharHP = CM.MageCharHP
-    NewCharAttack = CM.MageCharAttack
-    NewCharLH = CM.MageCharLuckHit
-    NewCharShield = CM.MageCharShield
-elif CharPick == 4:
-    NewCharHP = CM.TankCharHP
-    NewCharAttack = CM.TankCharAttack
-    NewCharLH = CM.TankCharLuckHit
-    NewCharShield = CM.TankCharShield
-
-def playerLose():
-    if NewCharHP == 0:
-        for char in GameLoseText:
-            sleep(0.04)
-            stdout.write(char)
-            stdout.flush()
-        sleep(2)
-        exit()
-
-def stage1():
+            TankPick = "4"
+            CharPick == TankPick
+            if CharPick == "4":
+                NewCharHP = CM.TankCharHP
+                NewCharAttack = CM.TankCharAttack
+                NewCharLH = CM.TankCharLuckHit
+                NewCharShield = CM.TankCharShield
 
     NowStage_HP = CM.Stage1HP
     NowStage_Attack = CM.Stage1Attack
     NowStage_Speed = CM.Stage1Speed
-    
+
+
     TextV = "Stage 1"
     for char in TextV:
         sleep(0.04)
@@ -171,14 +158,12 @@ def stage1():
     
     stage1run = 1
 
-    CharPickTest = 1
-
     while stage1run == 1:
         print(RollDiceText)
         sleep(0.5)
         DiceRollPromptI = input(":>")
         if DiceRollPromptI.lower() == "roll":
-            if CharPickTest == 1:
+            if CharPick == "1":
                 NumRollI = dicesII()
                 print("You rolled a", NumRollI)
             if NumRollI % 2 == 0:
@@ -199,7 +184,7 @@ def stage1():
                 if(NowStage_Speed * random.randint(2, 5) > NumRollI):
                     NewCharHP == NewCharHP - NowStage_Attack
                     print("The Guradian got you and you also got hit. You took ", NowStage_Attack, " Damage points")
-                    #as the rouge you lose 
+                  
 
 
             if CharPick == 2 or 3 or 4:
@@ -208,8 +193,6 @@ def stage1():
     
 
 
-#note fix up the character creator again. and test program 'check indens if it doesnt work'
         
 
-#Introduction()
-characterSection()
+
