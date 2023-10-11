@@ -47,7 +47,5 @@ def pickDice():
 
 
 
-#diceI()
-#dicesII()
-#pickDice()
+# Only dicesII() would be used for now
 

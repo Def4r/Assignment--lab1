@@ -43,7 +43,12 @@ Stage1HP = 4
 Stage1Attack = 1
 Stage1Speed = 1
 
-#Stage 2 Boss fight stats
-Stage3HP = 6
-Stage3Attack = 2
-Stage3Speed = 2
+#Stage 2 Boss fight stats | Can't be used 
+Stage2HP = 6
+Stage2Attack = 2
+Stage2Speed = 2
+
+#Stage 3 Boss fight stats
+# Was deleted
+
+#Only rouge is being used 

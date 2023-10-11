@@ -60,16 +60,32 @@ while time.perf_counter() - run < 3:
             stdout.flush()
         sleep(1)
         print("")
-        RougeSum = "Rouge: Fast, aglie and has access to double dice which allows them to travel faster but can't take hits and will die easily"
+        RougeSum = "Rouge: Fast, aglie and has access to double dice which allows them to travel faster but can't take hits and will die easily."
+        for char in RougeSum:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
         print("")
         sleep(1)
-        KnightSum = ""
+        KnightSum = "Knight: Able to hold their ground, Good damage and average health, jack of all trades master of none."
+        for char in KnightSum:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
         print("")
         sleep(1)
-        TankSum = ""
+        TankSum = "Tank: Slow, Powerful warrior who is able to take muitple hits wihout being hurt, slow movement makes him default to the single dice."
+        for char in TankSum:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
         print("")
         sleep(1)
-        MageSum = ""
+        MageSum = "Mage: This caster boast more damage than the knight but has less defences making him a hybrid between rouge and knight"
+        for char in MageSum:
+            sleep(0.04)
+            stdout.write(char)
+            stdout.flush()
         print("")
         sleep(1)
 
@@ -90,7 +106,7 @@ while time.perf_counter() - run < 3:
         exit()
 
     if  play == 1:
-        TextIV = "Pick you character | Type ....."
+        TextIV = "Pick you character | Type .....(ONLY ROUGE AVAILABLE TYPE 'rouge')"
         for char in TextIV:
             sleep(0.04)
             stdout.write(char)
@@ -109,10 +125,11 @@ while time.perf_counter() - run < 3:
                 NewCharAttack = CM.RougeCharAttack
                 NewCharShield = CM.RougeCharShield
                 NewCharLH = CM.RougeCharLuckHit
+        #Only the rouge is available All other code WILL not be used.
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
-            KnightPick = "2"
-            CharPick == KnightPick
+           #KnightPick = "2"
+           #CharPick == KnightPick
             if CharPick == "2":
                 NewCharHP = CM.KnightCharHP
                 NewCharAttack = CM.KnightCharAttack
@@ -120,8 +137,8 @@ while time.perf_counter() - run < 3:
                 NewCharLH = CM.KnightCharLuckHit
         elif PickChar.lower() == "Mage":
             PickMageText = ("You picked |The Mage|")
-            MagePick = "3"
-            CharPick == MagePick
+           #MagePick = "3"
+           #CharPick == MagePick
             if CharPick == "3":
                 NewCharHP = CM.MageCharHP
                 NewCharAttack = CM.MageCharAttack
@@ -129,8 +146,8 @@ while time.perf_counter() - run < 3:
                 NewCharShield = CM.MageCharShield
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
-            TankPick = "4"
-            CharPick == TankPick
+           #TankPick = "4"
+           #CharPick == TankPick
             if CharPick == "4":
                 NewCharHP = CM.TankCharHP
                 NewCharAttack = CM.TankCharAttack
@@ -171,7 +188,7 @@ while time.perf_counter() - run < 3:
                 print("You also rolled an even number so you got a hit")
                 sleep(2)
                 if(LuckHit < 88 and LuckHit > 0):
-                    NowStage_HP = NowStage_HP - NewCharHP * 2
+                    NowStage_HP = NowStage_HP - CM.RougeCharAttack * 2
                     print("You got LUCKY_HIT you dealt double damage!!")
                     sleep(2)
                     print("Guardian only has", NowStage_HP,"more hitpoints")
@@ -182,14 +199,19 @@ while time.perf_counter() - run < 3:
                 print("You also rolled an odd number you have to run")
                 sleep(2)
                 if(NowStage_Speed * random.randint(2, 5) > NumRollI):
-                    NewCharHP == NewCharHP - NowStage_Attack
-                    print("The Guradian got you and you also got hit. You took ", NowStage_Attack, " Damage points")
+                    CM.RougeCharHP == CM.RougeCharHP - NowStage_Attack
+                    print("The Guradian got you and you also got hit. GameOVER")
                   
 
-
+            #These were for the other characters
             if CharPick == 2 or 3 or 4:
                 NumRollII = dicesII()
                 print("You rolled ", NumRollII)
+
+            #and the other stages would be below 
+
+
+#In total there would have been 3 stages with 3 more characters to play.
     
 
 
