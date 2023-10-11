@@ -10,14 +10,6 @@ from time import sleep
 from sys import stdout
 
 CharPick = 0
-NewCharHP = 0
-NewCharSpeed = 0
-NewCharShield = 0
-NewCharAttack = 0
-NewCharLH = 0
-NowStage_HP = 0 
-NowStage_Attack = 0
-NowStage_Speed = 0
 DiceRolled = 0
 DistanceRan = 0
 
@@ -29,8 +21,8 @@ GameWinText = "YOU WON !!"
 RollDiceText = "Type 'roll' to roll your dice"
 
 
-run = time.clock()
-while time.clock() - run < 5:
+run = time.perf_counter()
+while time.perf_counter() - run < 5:
     LuckHit = random.randint(1,100)
 
 
@@ -117,42 +109,23 @@ def characterSection():
                 sleep(0.04)
                 stdout.write(char)
                 stdout.flush()
-            CharPick == 1
+            CharPick =+ 1
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
-            CharPick == 2
+            CharPick =+ 2
         elif PickChar.lower() == "Mage":
             PickMageText = ("You picked |The Mage|")
-            CharPick == 3
+            CharPick =+ 3
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
-            CharPick == 4
+            CharPick =+ 4
 
-def characterCreation():
-    if CharPick == 1:
-        NewCharHP == CM.RougeCharHP
-        NewCharSpeed == CM.RougeCharSpeed
-        NewCharAttack == CM.RougeCharAttack
-        NewCharShield == CM.RougeCharShield
-        NewCharLH == CM.RougeCharLuckHit
-    elif CharPick == 2:
-        NewCharHP
-        NewCharSpeed == CM.KnightCharSpeed
-        NewCharAttack == CM.KnightCharAttack
-        NewCharShield == CM.KnightCharShield
-        NewCharLH == CM.KnightCharLuckHit
-    elif CharPick == 3:
-        NewCharHP == CM.MageCharHP
-        NewCharSpeed == CM.MageCharSpeed
-        NewCharAttack == CM.MageCharAttack
-        NewCharShield == CM.MageCharShield
-        NewCharLH == CM.MageCharLuckHit
-    elif CharPick == 4:
-        NewCharHP == CM.TankCharHP
-        NewCharSpeed == CM.TankCharSpeed
-        NewCharAttack == CM.TankCharAttack
-        NewCharShield == CM.TankCharShield
-        NewCharLH == CM.TankCharLuckHit
+if CharPick == 1:
+    NewCharHP = CM.RougeCharHP
+    NewCharAttack = CM.RougeCharAttack
+    NewCharShield = CM.RougeCharShield
+    NewCharLH = CM.RougeCharLuckHit
+elif CharPick == 2:
 
 def playerLose():
     if NewCharHP == 0:
@@ -165,9 +138,9 @@ def playerLose():
 
 def stage1():
 
-    NowStage_HP == CM.Stage1HP
-    NowStage_Attack == CM.Stage1Attack
-    NowStage_Speed == CM.Stage1Speed
+    NowStage_HP = CM.Stage1HP
+    NowStage_Attack = CM.Stage1Attack
+    NowStage_Speed = CM.Stage1Speed
     
     TextV = "Stage 1"
     for char in TextV:
@@ -195,35 +168,36 @@ def stage1():
             if CharPickTest == 1:
                 NumRollI = dicesII()
                 print("You rolled a", NumRollI)
-                if NumRollI % 2 == 0:
-                    sleep(1)
-                    print("You also rolled an even number so you got a hit")
+            if NumRollI % 2 == 0:
+                sleep(1)
+                print("You also rolled an even number so you got a hit")
+                sleep(2)
+                if(LuckHit < 88 and LuckHit > 0):
+                    NowStage_HP = NowStage_HP - CM.RougeCharHP * 2
+                    print("You got LUCKY_HIT you dealt double damage!!")
                     sleep(2)
-                    if(LuckHit < 88 and LuckHit > 0):
+                    print("Guardian only has", NowStage_HP,"more hitpoints")
+                else:
+                    print("You damaged the Guardian. They only have ", NowStage_HP, " more hitpoints")
+            elif NumRollI % 2 != 0:
+                sleep(1)
+                print("You also rolled an odd number you have to run")
+                sleep(2)
+                if(NowStage_Speed * random.randint(2, 5) > NumRollI):
+                    CM.RougeCharHP == CM.RougeCharHP - NowStage_Attack
+                    print("The Guradian got you and you also got hit. You took ", NowStage_Attack, " Damage points")
+                    #as the rouge you lose 
 
-            if CharPick is 2 or 3 or 4:
+
+            if CharPick == 2 or 3 or 4:
                 NumRollII = dicesII()
                 print("You rolled ", NumRollII)
-            
-
-
-
-                
-
-
-                
-                
-
-        
-
-
     
 
 
-
-#use the class from character mod 
+#note fix up the character creator again. and test program 'check indens if it doesnt work'
         
 
 #Introduction()
-#characterSection()
+characterSection()
 stage1()
