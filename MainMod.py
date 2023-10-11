@@ -19,11 +19,19 @@ NowStage_HP = 0
 NowStage_Attack = 0
 NowStage_Speed = 0
 DiceRolled = 0
+DistanceRan = 0
+
+
 
 ErrorText = "ERROR :["
 GameLoseText = "YOU LOSE !!"
 GameWinText = "YOU WON !!"
 RollDiceText = "Type 'roll' to roll your dice"
+
+
+run = time.clock()
+while time.clock() - run < 5:
+    LuckHit = random.randint(1,100)
 
 
 def main():
@@ -50,7 +58,7 @@ def Introduction():
     
     if ContinuePrompt.lower() == "start":
         print("")
-        TextI = "The objective of the game is to make it out of the dungeon ALIVE. There will be 3 stages you will have to defeat in order to escape the dungeon. This game is dice based and will determine how the game will end up playing."
+        TextI = "The objective of the game is to make it out of the dungeon ALIVE. There will be 3 stages you will have to defeat in order to escape the dungeon. This game is dice based and will determine how the game will end up playing. If you roll an even number you attack, if you roll an odd you will have to run and may take a hit."
         for char in TextI:
             sleep(0.04)
             stdout.write(char)
@@ -76,9 +84,7 @@ def Introduction():
         MageSum = ""
         print("")
         sleep(1)
-        DifficultyChars = ""
-        print("")
-        sleep(2)
+    
 
         TextIII = "Now the game will begin. Have Fun :]"
         for char in TextIII:
@@ -184,11 +190,24 @@ def stage1():
     while stage1run == 1:
         print(RollDiceText)
         sleep(0.5)
-        DiceRollPrompt = input(">:")
-        if DiceRollPrompt.lower() == "roll":
+        DiceRollPromptI = input(":>")
+        if DiceRollPromptI.lower() == "roll":
             if CharPickTest == 1:
-                dicesII()
-                
+                NumRollI = dicesII()
+                print("You rolled a", NumRollI)
+                if NumRollI % 2 == 0:
+                    sleep(1)
+                    print("You also rolled an even number so you got a hit")
+                    sleep(2)
+                    if(LuckHit < 88 and LuckHit > 0):
+
+            if CharPick is 2 or 3 or 4:
+                NumRollII = dicesII()
+                print("You rolled ", NumRollII)
+            
+
+
+
                 
 
 

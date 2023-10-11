@@ -1,21 +1,20 @@
 # Creates the dices for the game
 
 import random
-DualDice = 0
-onlyDice = 0
+
 
 # Methods for the dices
 
 # This method is a singulair dice that the player uses when playing the game 
 def diceI():
-   onlyDice == random.randint(1,6)
+   onlyDice = random.randint(1,6)
    return onlyDice
 
 # This method is a double dice that the player uses when playing the game
 def dicesII():
    firstDice = random.randint(1, 6)
    secondDice = random.randint(1, 6)
-   DualDice == firstDice + secondDice
+   DualDice = firstDice + secondDice
    return DualDice
 
 # This method gives the user a prompt to answer in which of the 2 dices they want to use. if they don't pick the game will pick for th player randomly.

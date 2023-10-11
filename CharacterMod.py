@@ -8,7 +8,7 @@
 #Each stage will have a single fight the player will need to complete here I will example the stats
 #Stage_HP - The overall health the Boss can take
 #Stage_Attack - How much damage they can deal to you each turn.
-#Stage_Speed - If you do decide to run this would be how fast they can catch you getting a free hit. The number would be multipled by 3 to get the true distance.
+#Stage_Speed - If you do decide to run this would be how fast they can catch you getting a free hit. The number would be multipled by a random number [2 - 5] to get the true distance.
 
 #Stats for the rouge:
 RougeCharHP = 1
@@ -26,31 +26,17 @@ TankCharLuckHit = 0
 
 #Stats for the Mage:
 MageCharHP = 1
-MageCharSpeed = "pickDices"
+MageCharSpeed = "dicesI"
 MageCharShield = 2
 MageCharAttack = 1
 MageCharLuckHit = 2
 
 #Stats for the Knight
 KnightCharHP = 2
-KnightCharSpeed = "pickDices"
+KnightCharSpeed = "DicesI"
 KnightCharShield = 1
 KnightCharAttack = 2
 KnightCharLuckHit = 1
-
-#Nightmare Characters Stats | Hardmode |
-NightmareCharHP = 1
-NightmareCharSpeed = "dicesI"
-NightmareCharShield = 0
-NightmareCharAttack = 1
-NightmareCharLuckHit = 0
-
-#Chosen one Character Stats | Easymode | 
-EasyCharHp = 2
-EAsyCharSpeed = "dicesII"
-EasyCharShield = 2
-EasyCharAttack = 2
-EasyCharLuckyHit = 2
 
 #Stage 1 Boss Fight Stats
 Stage1HP = 4
@@ -58,11 +44,6 @@ Stage1Attack = 1
 Stage1Speed = 1
 
 #Stage 2 Boss fight stats
-Stage2HP = 4
-Stage2Attack = 2
-Stage2Speed = 2
-
-#Stage 3 Boss fight stats
 Stage3HP = 6
 Stage3Attack = 2
 Stage3Speed = 2
