@@ -14,7 +14,6 @@ DiceRolled = 0
 DistanceRan = 0
 
 
-
 ErrorText = "ERROR :["
 GameLoseText = "YOU LOSE !!"
 GameWinText = "YOU WON !!"
@@ -109,16 +108,16 @@ def characterSection():
                 sleep(0.04)
                 stdout.write(char)
                 stdout.flush()
-            CharPick =+ 1
+            CharPick = CharPick + 1
         elif PickChar.lower() == "Knight":
             PickKnightText = ("You have picked |The Knight|")
-            CharPick =+ 2
+            CharPick = CharPick + 2
         elif PickChar.lower() == "Mage":
             PickMageText = ("You picked |The Mage|")
-            CharPick =+ 3
+            CharPick = CharPick + 3
         elif PickChar.lower() == "Tank":
             PickTankText = ("You picked |The Tank|")
-            CharPick =+ 4
+            CharPick = CharPick + 4
 
 if CharPick == 1:
     NewCharHP = CM.RougeCharHP
@@ -126,6 +125,20 @@ if CharPick == 1:
     NewCharShield = CM.RougeCharShield
     NewCharLH = CM.RougeCharLuckHit
 elif CharPick == 2:
+    NewCharHP = CM.KnightCharHP
+    NewCharAttack = CM.KnightCharAttack
+    NewCharShield = CM.KnightCharShield
+    NewCharLH = CM.KnightCharLuckHit
+elif CharPick == 3:
+    NewCharHP = CM.MageCharHP
+    NewCharAttack = CM.MageCharAttack
+    NewCharLH = CM.MageCharLuckHit
+    NewCharShield = CM.MageCharShield
+elif CharPick == 4:
+    NewCharHP = CM.TankCharHP
+    NewCharAttack = CM.TankCharAttack
+    NewCharLH = CM.TankCharLuckHit
+    NewCharShield = CM.TankCharShield
 
 def playerLose():
     if NewCharHP == 0:
@@ -173,7 +186,7 @@ def stage1():
                 print("You also rolled an even number so you got a hit")
                 sleep(2)
                 if(LuckHit < 88 and LuckHit > 0):
-                    NowStage_HP = NowStage_HP - CM.RougeCharHP * 2
+                    NowStage_HP = NowStage_HP - NewCharHP * 2
                     print("You got LUCKY_HIT you dealt double damage!!")
                     sleep(2)
                     print("Guardian only has", NowStage_HP,"more hitpoints")
@@ -184,7 +197,7 @@ def stage1():
                 print("You also rolled an odd number you have to run")
                 sleep(2)
                 if(NowStage_Speed * random.randint(2, 5) > NumRollI):
-                    CM.RougeCharHP == CM.RougeCharHP - NowStage_Attack
+                    NewCharHP == NewCharHP - NowStage_Attack
                     print("The Guradian got you and you also got hit. You took ", NowStage_Attack, " Damage points")
                     #as the rouge you lose 
 
@@ -200,4 +213,3 @@ def stage1():
 
 #Introduction()
 characterSection()
-stage1()
